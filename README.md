@@ -1,3 +1,7 @@
+# lit-element-ts-parcel-starter
+
+## LitElement + TypeScript + Parcel.js Starter Project
+
 A simple starter project to develop your own custom elements or complete web application using [Web Components](https://www.webcomponents.org/) through the [LitElement](https://lit.dev/) framework.
 
 **Features** :
