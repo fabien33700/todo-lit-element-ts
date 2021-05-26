@@ -7,13 +7,13 @@
 		"start": "parcel index.html --open",
 		"build": "parcel build index.html"
 	},
-	"dependencies": {
-		"lit-element": "^2.5.1"
-	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.24.0",
 		"@typescript-eslint/parser": "^4.24.0",
 		"parcel-bundler": "^1.6.1",
 		"typescript": "^4.2.4"
+	},
+	"dependencies": {
+		"lit": "^2.0.0-rc.2"
 	}
 }
