@@ -1,46 +1,49 @@
-import { html, LitElement } from 'lit'
-import { customElement, property } from 'lit/decorators.js'
-import { classMap } from 'lit/directives/class-map.js'
+import { html, LitElement } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 
-import TodoItemModel from '../../model/item'
-import TodoEvent from '../../model/events'
+import TodoItemModel from "../../model/item";
 
-import styles from './todo-item.css'
+import styles from "./todo-item.css";
 
-@customElement('todo-item')
+@customElement("todo-item")
 export default class TodoItemElement extends LitElement {
-  static styles = styles
+  static styles = styles;
 
   @property()
-  private todo: TodoItemModel
+  todo: TodoItemModel;
 
-  private toggleDone() {
-    this.dispatchEvent(
-      new TodoEvent('toggle-done')
-    )
+  private _toggleDone() {
+    this.dispatchEvent(new CustomEvent("toggle-done"));
     this.todo = {
       ...this.todo,
-      done: !this.todo.done
-    }
+      done: !this.todo.done,
+    };
+  }
+
+  private _deleteTodo() {
+    this.dispatchEvent(new CustomEvent("delete-todo"));
   }
 
   protected render() {
-    const { done } = this.todo
+    const { done } = this.todo;
     const classes = {
       check: { checkbox: true, done },
       text: { text: true, done },
-    }
+    };
 
     return html`
-      <div id="todo-check"
+      <div
+        id="todo-check"
         class=${classMap(classes.check)}
-        @click=${this.toggleDone}
-      >✓</div>
+        @click=${this._toggleDone}
+      >
+        ✓
+      </div>
       <span id="todo-text" class=${classMap(classes.text)}>
         <slot></slot>
-        <button id="delete-btn" class="delete-btn"
-        >⨯</button>
+        <button id="delete-btn" class="delete-btn" @click=${this._deleteTodo}>⨯</button>
       </span>
-    `
+    `;
   }
 }

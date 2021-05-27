@@ -1,0 +1,29 @@
+import { css } from "lit-element";
+
+export default css`
+  :host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column:first-child {
+    margin-top: 10px;
+  }
+
+  .column > * {
+    margin-bottom: 10px;
+  }
+`
