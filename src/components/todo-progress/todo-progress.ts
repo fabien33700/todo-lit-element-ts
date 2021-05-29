@@ -6,8 +6,7 @@ import styles from './todo-progress.css';
 
 function bound(value: number, range: [number, number]) {
   let [min, max] = range
-  if (max < min)
-    [min, max] = [max, min]
+  if (max < min) [min, max] = [max, min]
   return (value < min) ? min : (value > max) ? max : value;
 }
 
@@ -15,7 +14,9 @@ function bound(value: number, range: [number, number]) {
 export default class TodoProgressElement extends LitElement {
   static styles = styles
 
-  @property()
+  @property({
+    type: Number
+  })
   percent: number = 0
 
   render() {

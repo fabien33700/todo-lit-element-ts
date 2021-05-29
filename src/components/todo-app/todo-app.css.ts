@@ -17,6 +17,7 @@ export default css`
   .column {
     display: flex;
     flex-direction: column;
+    width: 45vw;
   }
 
   .column:first-child {

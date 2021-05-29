@@ -1,20 +1,18 @@
-import { css, html, LitElement } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 
 import TodoItemModel from "../../model/item";
+import styles from './todo-list.css';
 
+// Required custom elements
 import "../todo-item/todo-item";
 
 @customElement("todo-list")
 export default class TodoListElement extends LitElement {
-  static styles = css`
-    :host {
-      display: flex;
-      flex-direction: column;
-    }
-  `;
+  static styles = styles;
 
-  @property() todos: TodoItemModel[];
+  @property({ type: Array })
+  todos: TodoItemModel[];
 
   private toggleDone(index: number) {
     const event = new CustomEvent("toggle-done", { detail: index });

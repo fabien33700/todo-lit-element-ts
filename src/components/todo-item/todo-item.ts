@@ -10,15 +10,15 @@ import styles from "./todo-item.css";
 export default class TodoItemElement extends LitElement {
   static styles = styles;
 
-  @property()
+  @property({ type: Object })
   todo: TodoItemModel;
 
   private _toggleDone() {
     this.dispatchEvent(new CustomEvent("toggle-done"));
-    this.todo = {
-      ...this.todo,
-      done: !this.todo.done,
-    };
+    // this.todo = {
+    //   ...this.todo,
+    //   done: !this.todo.done,
+    // };
   }
 
   private _deleteTodo() {

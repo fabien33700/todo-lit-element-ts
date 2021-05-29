@@ -2,8 +2,9 @@ import { html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators";
 
 import TodoItemModel from "../../model/item";
-
 import styles from "./todo-app.css";
+
+// Required custom elements
 import "../todo-list/todo-list";
 import "../todo-add/todo-add";
 import "../todo-progress/todo-progress";
@@ -18,6 +19,10 @@ export default class TodoAppElement extends LitElement {
     { text: "Présentation Web Components", done: false },
   ];
 
+  /**
+   * Handle 'toggle-done' event from <todo-list> element
+   * @param e the event fired by TodoListElement
+   */
   private _onToggleDone(e: CustomEvent) {
     const index = e.detail;
     this._todos = this._todos.map((todo, i) =>
@@ -25,11 +30,19 @@ export default class TodoAppElement extends LitElement {
     );
   }
 
+  /**
+   * Handle 'delete-todo' event from <todo-list> element
+   * @param e the event fired by TodoListElement
+   */
   private _onDeleteTodo(e: CustomEvent) {
     const index = e.detail;
     this._todos = this._todos.filter((_, i) => i !== index);
   }
 
+  /**
+   * Handle 'todo-added' event from <todo-add> element
+   * @param e the event fired by TodoAddElement
+   */
   private _onTodoAdded(e: CustomEvent) {
     const text = e.detail;
     this._todos = [

@@ -7,6 +7,11 @@ import styles from './todo-add.css'
 export default class TodoAppDocument extends LitElement {
   static styles = styles
 
+  /**
+   * Handle event fired when user press Enter key, and
+   * fire a 'todo-added' event to the parent element
+   * @param e The keyup event from the task input
+   */
   private _addTodo(e: KeyboardEvent) {
     if (e.key !== "Enter") return;
 
