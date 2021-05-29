@@ -15,10 +15,6 @@ export default class TodoItemElement extends LitElement {
 
   private _toggleDone() {
     this.dispatchEvent(new CustomEvent("toggle-done"));
-    // this.todo = {
-    //   ...this.todo,
-    //   done: !this.todo.done,
-    // };
   }
 
   private _deleteTodo() {
