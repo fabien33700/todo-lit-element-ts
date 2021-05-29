@@ -25,7 +25,6 @@ export default class TodoAppDocument extends LitElement {
 
   render() {
     return html`
-      <input type="checkbox" disabled />
       <input
         type="text"
         placeholder="Add a new task"

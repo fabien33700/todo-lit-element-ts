@@ -8,6 +8,7 @@ export default css`
     outline: none;
     margin-top: 5px;
     padding-bottom: 5px;
+    width: 100%;
     transition: 0.3s;
   }
   .add-todo::placeholder {

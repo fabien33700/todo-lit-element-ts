@@ -8,7 +8,6 @@ export default css`
   }
 
   .container {
-    width: 60vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +16,7 @@ export default css`
   .column {
     display: flex;
     flex-direction: column;
-    width: 45vw;
+    width: var(--todo-app-width, 45vw);
   }
 
   .column:first-child {

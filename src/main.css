@@ -2,3 +2,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 10.5pt;
 }
+
+todo-app {
+  --todo-app-width: 45vw;
+  --todo-progress-border-radius: 3px;
+  --todo-progress-height: 5px;
+  --todo-progress-inactive-color: #eee;
+  --todo-progress-active-color: #5bc0de;
+  /* --todo-check-inactive-color: none;
+  --todo-check-inactive-color-hover: none;
+  --todo-check-active-color: none;
+  --todo-check-active-color-hover: none; */
+}

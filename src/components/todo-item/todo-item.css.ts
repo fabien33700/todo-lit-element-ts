@@ -18,7 +18,7 @@ export default css`
   }
 
   .checkbox, .delete-btn {
-    background: none;
+    background: var(--todo-check-inactive-color-hover, none);
     border: none;
     border-radius: 3px;
     transition: 0.3s;
@@ -32,20 +32,20 @@ export default css`
   }
 
   .checkbox:hover {
-    background-color: #eee;
+    background: var(--todo-check-inactive-color-hover, #eee);
   }
 
   .delete-btn:hover {
-    background-color: #c0392b;
+    background: var(--todo-check-delete-button-color, #c0392b);
     color: white;
   }
 
   .checkbox.done {
-    background-color: #7dcea0;
+    background: var(--todo-check-active-color, #7dcea0);
     color: white;
   }
 
   .checkbox.done:hover {
-    background-color: #229954;
+    background-color: var(--todo-check-active-color-hover, #229954);
   }
 `;

@@ -55,9 +55,9 @@ export default class TodoAppElement extends LitElement {
   }
 
   render() {
-    const done = this._todos.filter(todo => todo.done).length;
+    const done = this._todos.filter((todo) => todo.done).length;
     const total = this._todos.length;
-    const percent = done / total * 100;
+    const percent = (done / total) * 100;
 
     return html`
       <div class="container">
