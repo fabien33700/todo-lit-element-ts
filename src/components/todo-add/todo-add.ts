@@ -1,11 +1,11 @@
 import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators";
 
-import styles from './todo-add.css'
+import styles from "./todo-add.css";
 
 @customElement("todo-add")
-export default class TodoAppDocument extends LitElement {
-  static styles = styles
+export default class TodoAddElement extends LitElement {
+  static styles = styles;
 
   /**
    * Handle event fired when user press Enter key, and
@@ -18,7 +18,7 @@ export default class TodoAppDocument extends LitElement {
     const text = (e.target as HTMLInputElement).value;
 
     if (text && text.trim()) {
-      const event = new CustomEvent('todo-added', { detail: text })
+      const event = new CustomEvent("todo-added", { detail: text });
       this.dispatchEvent(event);
     }
   }
