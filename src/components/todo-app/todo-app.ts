@@ -1,5 +1,5 @@
 import { html, LitElement } from "lit";
-import { customElement, property } from "lit/decorators";
+import { customElement, state } from "lit/decorators";
 
 import TodoItemModel from "../../model/item";
 import styles from "./todo-app.css";
@@ -8,16 +8,14 @@ import styles from "./todo-app.css";
 import "../todo-list/todo-list";
 import "../todo-add/todo-add";
 import "../todo-progress/todo-progress";
+import TodoService from "../../services/todos.service"
 
 @customElement("todo-app")
 export default class TodoAppElement extends LitElement {
   static styles = styles;
 
-  @property({ attribute: false })
-  private _todos: TodoItemModel[] = [
-    { text: "Faire les courses", done: true },
-    { text: "Présentation Web Components", done: false },
-  ];
+  @state()
+  private _todos: TodoItemModel[] = TodoService.load();
 
   /**
    * Handle 'toggle-done' event from <todo-list> element
@@ -45,6 +43,11 @@ export default class TodoAppElement extends LitElement {
    */
   private _onTodoAdded(e: CustomEvent) {
     const text = e.detail;
+
+    // Filter predicates
+    if (this._todos.find((todo) => todo.text === text))
+      return;
+
     this._todos = [
       ...this._todos,
       {
@@ -52,6 +55,10 @@ export default class TodoAppElement extends LitElement {
         done: false,
       },
     ];
+  }
+
+  updated() {
+    TodoService.save(this._todos);
   }
 
   render() {
