@@ -20,6 +20,7 @@ export default class TodoAddElement extends LitElement {
     if (text && text.trim()) {
       const event = new CustomEvent("todo-added", { detail: text });
       this.dispatchEvent(event);
+      (e.target as HTMLInputElement).value = '';
     }
   }
 
